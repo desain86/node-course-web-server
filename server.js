@@ -24,19 +24,31 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+       res.render('about.hbs',{
+       title: 'Home',
+       date: new Date().getFullYear()
+   }); 
 });
 
 app.get('/about', (req, res) => {
    res.render('about.hbs',{
-       title: 'About Page 2',
+       title: 'About Page',
        date: new Date().getFullYear()
    }); 
 });
 
 app.get('/help', (req, res) => {
-    res.render('help.hbs');
-})
+    res.render('help.hbs', {
+        title: 'Help Page',
+       date: new Date().getFullYear()
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs',{
+       title:'Projects' 
+    });
+});
 
 app.listen(process.env.PORT, () => {
     console.log(__dirname);
